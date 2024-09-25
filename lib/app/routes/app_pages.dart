@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/detailScreen/bindings/detail_screen_binding.dart';
+import '../modules/detailScreen/views/detail_screen_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/searchScreen/bindings/search_screen_binding.dart';
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.SPLASH_SCREEN,
       page: () => const SplashScreenView(),
       binding: SplashScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_SCREEN,
+      page: () => const DetailScreenView(),
+      binding: DetailScreenBinding(),
     ),
   ];
 }

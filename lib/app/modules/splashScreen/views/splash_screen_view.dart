@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../controllers/splash_screen_controller.dart';
 
+
 class SplashScreenView extends GetView<SplashScreenController> {
   const SplashScreenView({Key? key}) : super(key: key);
   @override
@@ -21,27 +22,8 @@ class SplashScreenView extends GetView<SplashScreenController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: SizedBox(
-                height:200.0,
-                child: Image(
-                  image: AssetImage('images/img.png'),
-                ),
-              ),
-            ),
-            SizedBox(
-              child: Text(
-                "Flickd",
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  shadows: [
-                    Shadow(
-                      blurRadius: 8.0,
-                      color: Colors.white,
-                      offset: Offset(2.0, 0.0),
-                    ),
-                  ],
-                ),
+              child: Image(
+                image: AssetImage("images/netflix.png"),
               ),
             ),
           ],
