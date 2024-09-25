@@ -11,23 +11,25 @@ class SearchScreenController extends GetxController {
 
   TextEditingController searchController = TextEditingController();
   // RxString searchTerm = ''.obs;
-  var movieList = <dynamic>[].obs;
+  // var movieList = <dynamic>[].obs;
 
-
+  List<Movie> movieList = [];
+  RxString search = 'hello'.obs;
+  // RxList searchList = <Movie>[].obs;
+  // List<searchMovieList>
   getSearchApi(String searchTerm) async {
     final http.Response response =
     await http.get(Uri.parse('https://api.tvmaze.com/search/shows?q=$searchTerm'));
-    // var data = jsonDecode(response.body.toString());
+    var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
-      List<dynamic> items = json.decode(response.body.toString());
-
-      movieList.value=items;
-
-      print(movieList[0]);
-      // movieList = searchList;
-      return items[0];
+      for (Map i in data) {
+        movieList.add(Movie.fromJson(i));
+      }
+      print(movieList);
+      search.value = 'hello$searchTerm';
+      return movieList;
     } else {
-      return null;
+      return movieList;
     }
   }
 
@@ -36,7 +38,7 @@ class SearchScreenController extends GetxController {
   final count = 0.obs;
   @override
   void onInit() {
-      getSearchApi('all');
+      // getSearchApi('all');
     super.onInit();
   }
 
